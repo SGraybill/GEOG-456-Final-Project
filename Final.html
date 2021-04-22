@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Webpage_FinalVisualization</title>
+
+    <script src='https://cdn.plot.ly/plotly-latest.min.js'></script>
+</head>
+
+<style>
+    body {
+        background-color: bisque;
+    }
+/* Webpage Title */
+    .daOliveBox {
+        background-color:darkolivegreen;
+        position:absolute;
+        top:5%;
+        left:0%;
+        width:100%;
+        height:16%;
+        font-size: medium;
+    }
+    h1 {
+        position: relative;
+        text-align: center;
+        font-family:monospace;
+    }
+
+  /* Labor Migration Text */
+    #daLaborMig1 {
+        color:black;
+        position:absolute;
+        top:120% ;
+        left:38%;
+        width: 25%;
+        height: 11%;
+        font-size: large;
+    }
+    h2 {
+        position: relative;
+        text-align: center;
+        font-family:monospace;
+    }
+
+  
+    #daLaborMig2 {
+      color: black;
+        position:absolute;
+        top:130% ;
+        left:30%;
+        width: 40%;
+        height: 11%;
+        font-size: small;
+    } 
+    h3 {
+      position: relative;
+        text-align: center;
+        font-family:monospace;
+    } 
+
+/* Labor Migration Graph */
+    #myDiv1 {
+      position:absolute;
+        top:145% ;
+        left:5%;
+        width: 45%;
+        height: 50%;
+    }
+  h4 {
+    position: absolute;
+        text-align: center;
+        font-family:monospace;
+        top: 860px;
+        left: 190px;
+  }
+
+/* Asylum Seeking Section */
+  #myDiv2 {
+    position:absolute;
+        top:1300px ;
+        left:50px;
+  }
+    h5 {
+    position: relative;
+    text-align: center;
+    font-family: monospace;
+    top: 1150px;
+    font-size: x-large;
+  }
+ 
+
+/* Picture Slideshow */ 
+{box-sizing: border-box}
+.mySlides {display: none}
+img {vertical-align: middle; max-height: 600px; max-width: 600px;}
+
+/* Slideshow container */
+.slideshow-container {
+  max-width: 600px;
+  max-height: 600px;
+  position: absolute;
+  top: 25%;
+  left: 26.10%;
+}
+/* Next & previous buttons */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  margin-top: -22px;
+  color: white;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+/* Fading animation */
+.fade {
+  -webkit-animation-name:fade;
+  -webkit-animation-duration: 1.0s;
+  animation-name:fade;
+  animation-duration: 1.0s;
+}
+@-webkit-keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+@keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+/* On smaller screens, decrease text size */
+@media only screen and (max-width: 300px) {
+  .prev, .next,.text {font-size: 11px}
+}
+  </style>
+
+<body>
+
+    <div class="daOliveBox">
+        <h1 > Human Mobility in a Globalized World: <br> Migration Dynamics in Nepal 
+        </h1>
+    </div>
+</div>
+
+
+<div id="daLaborMig1">
+    <h2>
+        Labor Migration 
+    </h2>
+</div>
+
+<div id= "daLaborMig2">
+    <h3>
+      “foreign labour migration is an essential part of everyday life for Nepalese people” (Kunwar, 2020)  
+     </h3>
+</div>
+
+<div class="slideshow-container">
+
+    <!-- Full-width images with number and caption text -->
+    <div class="mySlides fade">
+      <div class="numbertext"></div>
+      <img src="Slideshow\1.jpg" style="width:100">
+    </div>
+  
+    <div class="mySlides fade">
+      <div class="numbertext"></div>
+      <img src="Slideshow\2.jpg" style="width:100%">
+    </div>
+  
+    <div class="mySlides fade">
+      <div class="numbertext"></div>
+      <img src="Slideshow\3.jpg" style="width:100%">
+    </div>
+
+    <div class="mySlides fade">
+        <div class="numbertext"></div>
+        <img src="Slideshow\4.jpg" style="width:100%">
+      </div>
+
+      <div class="mySlides fade">
+        <div class="numbertext"></div>
+        <img src="Slideshow\5.jpg" style="width:100%">
+      </div>
+  
+    <!-- Next and previous buttons -->
+    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+    <a class="next" onclick="plusSlides(1)">&#10095;</a>
+  </div>
+  <br>
+  
+  <!-- The dots/circles -->
+  <div style="text-align:center">
+    <span class="dot" onclick="currentSlide(1)"></span>
+    <span class="dot" onclick="currentSlide(2)"></span>
+    <span class="dot" onclick="currentSlide(3)"></span>
+  </div>
+
+  <script>
+    var slideIndex = 1;
+    showSlides(slideIndex);
+    
+    function plusSlides(n) {
+      showSlides(slideIndex += n);
+    }
+    
+    function currentSlide(n) {
+      showSlides(slideIndex = n);
+    }
+    
+    function showSlides(n) {
+      var i;
+      var slides = document.getElementsByClassName("mySlides");
+      var dots = document.getElementsByClassName("dot");
+      if (n > slides.length) {slideIndex = 1}    
+      if (n < 1) {slideIndex = slides.length}
+      for (i = 0; i < slides.length; i++) {
+          slides[i].style.display = "none";  
+      }
+      for (i = 0; i < dots.length; i++) {
+          dots[i].className = dots[i].className.replace(" active", "");
+      }
+      slides[slideIndex-1].style.display = "block";  
+      dots[slideIndex-1].className += " active";
+    }
+    </script>
+
+
+<div id="myDiv1"></div>
+<h4> Annual Remittances from Nepalese Labor Migrants <br> 1990-2020 / 2047-2077</h4>
+
+<input id="slide" type="range" value="1" class="slider" oninput="mySlice(this.value)">
+
+<script src="Data\Cleaned Data\Nepal Remittances 1990-2020 World Bank.js"></script>
+
+    <script>
+        var trace1 = {
+  x: remittances.Year,
+  y: remittances.RemittancesUSD,
+  mode: 'line',
+  type: 'line',
+  marker: {
+      color:'rgb(142,124,195)'
+  }
+};
+
+var data = [trace1];
+var layout = {
+    xaxis: {
+      fixedrange:true,
+  range: [1990,2020],
+    title: {
+      text: 'Year',
+      font: {
+        family: 'Calibri',
+        size: 14,
+        color: '#000000'
+      }
+    },
+  },
+  yaxis: {
+    fixedrange:true,
+  range: [0,7400],
+    title: {
+      text: 'Remittances (US Million)',
+      font: {
+        family: 'Calibri',
+        size: 14,
+        color: '#000000'
+      }
+    }
+  }
+};   
+
+mySlice =function(daValue) {
+  trace3.x=remittances.Year.slice(0,daValue)
+  trace3.y=remittances.RemittancesUSD.slice(0,daValue)
+  trace3.marker.color='rgb(142,124,195)'.slice(0,daValue)
+  makePlot ()
+}
+makePlot=function(){
+  data=[trace3];
+  Plotly.newPlot('myDiv1', data);
+}
+Plotly.newPlot('myDiv1', data, layout);
+</script> 
+
+
+<div id="Asylum1">
+  <h5>
+      Asylum Seeking 
+  </h5>
+</div>
+
+<div id="myDiv2">
+<img src="Animated GIF.gif" width="1000" height="400"> </div>
+
+</body>
+</html>

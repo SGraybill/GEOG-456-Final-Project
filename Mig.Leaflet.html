@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Migration Plugin</title>
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+   integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+   crossorigin=""/>
+
+   <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+   integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+   crossorigin=""></script>
+
+   <script src="./dist/leaflet.migrationLayer.js"></script>
+
+</head>
+
+<body>
+    <div id="mapid" style="height: 500px;"></div>
+    
+    <script>
+        var map = L.map('mapid').setView([28.3949, 84.1240], 7.3);
+
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {}).addTo(map);
+    </script>
+
+    <script>
+        var migrationLayer = new L.migrationLayer({
+    map: map,
+    data: data
+})
+
+import 'leflet.migration';
+const data = [{
+  labels: ['from', 'to'],
+  from: [4.2105, 101.9758],
+  to: [28.3949, 84.1240],
+  color: '',
+  value: ''
+}];
+var options = {
+  minRadius: 3,
+  maxRadius: 3,
+  arcWidth: 0.001,
+  label: true,
+  order: true,
+  replacePopover: function (x, y, data, index) {
+    console.log(x, y, data, index, 'show popover');
+    popover.innerHTML = 'value:' + data.value + '\nfrom:' + data.labels[1] + '\nto:' + data.labels[0]
+    return popover;
+  },
+  onShowPopover: function (x, y, data, index) {
+    console.log(x, y, data, index, 'show popover');
+  },
+  onHidePopover: function (index) {
+    console.log('hide popover', index);
+  }
+};
+var migrationLayer = L.migrationLayer(data.map(i => Object.assign(i, {  })), options);
+migrationLayer.setStyle({ pulse: { radius: 20 }})
+migrationLayer.setData([])
+map.remove(migrationLayer)
+    </script>
+
+
+</body>
+</html>
